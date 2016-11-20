@@ -1,0 +1,3 @@
+run generate_mesg_space.py to generate the message space and identification numbers are stored in idsorted.txt. note that the message space only contains identification id from 2012 to 2017 with the unique code from 1 to 49. Even with this ,the message space can be as high as 314686575. and the file size is 5.7GB. 
+run the generate_prob2id_table.py to generate the table containing cumulative probability to each corresponding message in the message space for decode purpose. the mapping is stored in cum_prob_table.txt
+ run the identification_test.py to run the script. Note that the message to be encoded is hardcoded. You can cat idsorted.txt to pick any message and change the message to be encoded. in the identification_test.py.
