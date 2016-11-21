@@ -18,14 +18,14 @@ import math
 
 # helper function to get denominator of prefix probabilities
 def getTotalProbability():
-    sum = 314686575
+    sum = 28717128
     return sum
 
 """
 Creates prefix cumulative probability distribution
 """
 def get_cumul_prob(mesg, sum):
-    with open("idsorted.txt") as f:
+    with open("telno.txt") as f:
 	i = 0;
     	for line in f:
 		i = i + 1
@@ -40,15 +40,7 @@ def create_prefix_ordered_list():
     return lines
 
 
-# given random message string as int, return int message with last digit appended such that new string is Luhn-valid
-def luhn(m):
-    sum = 0
-    for i in list(str(m)):
-        sum += int(i)
-    last = (9 * sum) % 10
-    return m * 10 + last
-
-class IdentificationProbabilityFxns(MessageSpaceProbabilityFxnsWei):
+class TelNOProbabilityFxns(MessageSpaceProbabilityFxnsWei):
 
     def __init__(self):
         self.sum = getTotalProbability()
@@ -57,22 +49,22 @@ class IdentificationProbabilityFxns(MessageSpaceProbabilityFxnsWei):
         # this actually doesn't depend on the prefix but only the length of the string....
         # whatever
         def prob(self, m):
-            return float(1)/314686575
+            return float(1)/getTotalProbability()
             
 
         # define cumul distribution fxn
         def cumul(self, m):
-            with open("idsorted.txt") as f:
+            with open("telno.txt") as f:
 		i = 0
     	        for line in f:
                     i = i + 1
                     if line.strip() == str(m):
-                        return i*(float(1)/314686575)
+                        return i*(float(1)/getTotalProbability())
 
         # define next message fxn
         # simplified to never carry over to another prefix
         def next_msg(self,m):
-            with open("idsorted.txt") as f:
+            with open("telno.txt") as f:
 		i = 0
 		find = 0
     	        for line in f:

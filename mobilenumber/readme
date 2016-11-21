@@ -1,0 +1,3 @@
+1. use generate_mesg_space.py to generate the message space.
+2. use generate_prob2telno_table.py to generate the cumulative-probablity-to-message table that contains mapping of cummulative probability to messages.
+3. run telno_test.py to run the honey encryption process. You can change the telephone number to be encrypted. but the number should be picked from the message space in the telno.txt file.
