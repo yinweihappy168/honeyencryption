@@ -3,7 +3,7 @@
 # Tests to see if the methods in credit_card.py, probabilityfunctionAPI.py, and DTE.py
 # work together.
 
-from telno import *
+from password import *
 from DTE import *
 import os
 from random import randint
@@ -18,7 +18,7 @@ prefixes = {
 
 ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
 
-telno_example = '13000000023'
+pwd_example = '567890'
 secret_key = 2048101736616812280
 #guess_key =  2048101736616812280
 guess_key =  5496328831800304765
@@ -28,12 +28,12 @@ id_fxns = TelNOProbabilityFxns()
 
 
 # Use DTE on identification example
-seed = encode(telno_example, id_fxns)
+seed = encode(pwd_example, id_fxns)
 ciphertext = secret_key ^ seed
 decipher_seed = guess_key ^ ciphertext
 
 
-print "MOBILE NUMBER TO BE ENCRYPED: "+telno_example
+print "PASSWORD: "+pwd_example
 print ""
 print "HEX(SEED): "+str(hex(seed))
 print "CIPHERTEXT: "+str(ciphertext)

@@ -41,7 +41,7 @@ print "HEX(GUESSED_SEED): "+str(hex(decipher_seed))
 print ""
 
 message = decode(decipher_seed, id_fxns)
-print "decoded by a wrong seed, returned MESSAGE: "+message
+print "decoded by the guessed seed, returned MESSAGE: "+message
 
 message = decode(seed, id_fxns)
 print "decoded by a right seed, returned MESSAGE: "+message
