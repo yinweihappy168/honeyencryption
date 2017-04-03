@@ -1,0 +1,9 @@
+1. use generate_mesg_space.py to generate the message space.
+2. use generate_prob2pwd_table.py to generate the cumulative-probablity-to-message table that contains mapping of cummulative probability to password messages.
+3. run password_test.py to run the honey encryption process. You can change the password to be encrypted by modifying the password_test.py file. but the number should be picked from the message space(000000 to 999999) as shown in the password.txt file.
+
+Why not use a wrong private key and the cipher as the inputs for decryption?
+ because rsa encounters an error when doing so.
+
+how do we implement with rsa.
+In symetric encryption, the encode funtion in DTE maps plaintext message to a random seed, the decode function in DTE maps a seed to the plaintext message. The XOR is utilised as the symetric algorithm. When integrating with rsa, during the encryption process, we call the encode funtion and obtains the seed and then uses the public key to decrypt the seed and obtain the cipher. In the decrption process, the system compares the decryption key with the correct private key, if it is correct, the system calls the rsa decryption function and obtain the seed, then the seed is used as the input for decode function in DTE and finally the plaintext is obtained. Otherwise, the system outputs a random seed from the seed range instead of running the rsa decryption function. The random seed then is used as input for decode in DTE and obtains a wrong plaintext message from the message space.

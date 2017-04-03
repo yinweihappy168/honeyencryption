@@ -1,0 +1,4 @@
+ 0.5,Cappuccino
+0.75,Espresso
+0.875, Latte
+1,Mocha
