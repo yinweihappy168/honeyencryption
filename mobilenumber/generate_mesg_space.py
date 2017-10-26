@@ -5,7 +5,7 @@
 f = open("unicomtelnoprefix.txt", 'r')
 prefixes = f.readlines()
 
-f2 = open("telnosorted.txt", 'w')
+f2 = open("telno.txt", 'w')
 
 for prefix in prefixes:
 	for num in range(1,10000):
